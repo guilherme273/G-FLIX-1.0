@@ -163,7 +163,8 @@ Dashboard com gráficos (linha, pizza) e rankings
 
 Gerenciamento de usuários e permissões
 
-* ENTRE COM AS SEGUINTES CREDENCIAIS PARA TER ACESSO AO DASHBOARD ADMINSTRATIVO:
+ENTRE COM AS SEGUINTES CREDENCIAIS PARA TER ACESSO AO DASHBOARD ADMINSTRATIVO:
+
 EMAIL: admin-gflix@gmail.com
 SENHA: SuperAdmin123!
 
