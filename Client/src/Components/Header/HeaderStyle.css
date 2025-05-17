@@ -1,0 +1,318 @@
+.button-mobile-header {
+  display: none;
+}
+
+.header {
+  background-color: black;
+  border-bottom: 1px solid rgba(255, 0, 0, 0.618);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+  flex-direction: row;
+  min-height: 75px;
+  z-index: 999;
+}
+
+.div-header-logo {
+  display: flex;
+  flex-direction: row;
+  gap: 1.2rem;
+  position: relative;
+}
+
+.div-header {
+  position: relative;
+}
+.div-header-nav {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.link-logo {
+}
+
+.logo-g-flix {
+  width: 100px;
+}
+.logo-g-flix-header {
+  width: 100px;
+}
+.link-header {
+  text-decoration: none;
+  color: aliceblue;
+  padding: 0.5rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.link-header:hover {
+  color: rgb(122, 129, 135);
+}
+.link-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 0%;
+  background-color: red; /* troca a cor se quiser */
+  transition: width 0.5s ease;
+  transform-origin: right;
+}
+
+.link-header:hover::after {
+  width: 100%;
+}
+
+.none {
+  display: none;
+}
+
+.div-user-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+.div-user-header-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(56, 26, 68);
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+}
+
+.icon-user-header {
+  color: aliceblue;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 45px; /* abaixo da bolinha */
+  right: -295%;
+  background-color: black;
+  border: 1px solid rgba(255, 0, 0, 0.249);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+  z-index: 100;
+  min-width: 180px;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.button-menu-user-header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  color: aliceblue;
+  gap: 10px;
+}
+
+.button-menu-user-header:hover {
+  background-color: rgb(27, 27, 27);
+  color: rgb(122, 129, 135);
+}
+.button-menu-user-header:hover .icon-link-header {
+  color: red;
+}
+
+.icon-link-header {
+  color: aliceblue;
+}
+.link-header:hover .icon-link-header {
+  color: red;
+}
+
+.email-user-header {
+  display: flex;
+  flex-wrap: wrap;
+  color: aliceblue;
+  font-size: 15px;
+  padding-inline: 10px;
+}
+.div-email-user-header {
+  display: flex;
+}
+
+@media (min-width: 1px) and (max-width: 600px) {
+  .button-mobile-header {
+    display: flex;
+    position: fixed;
+    top: 2%;
+    left: 3%;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    border: 0.1px solid rgba(255, 0, 0, 0.534);
+    border-radius: 100%;
+    padding: 5px;
+    z-index: 999;
+  }
+  .header {
+    display: none;
+  }
+
+  .header-mobile {
+    background-color: black;
+    border-right: 1px solid rgba(255, 0, 0, 0.618);
+    display: flex;
+    position: fixed;
+    left: 0;
+    width: 60%;
+    height: 100%;
+    align-items: center;
+    gap: 1rem;
+    flex-direction: column;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    z-index: 999;
+    animation: slideInFromLeft 0.5s ease-out forwards;
+  }
+  .div-header-logo {
+    display: flex;
+    flex-direction: row;
+    gap: 1.2rem;
+    margin-top: 2rem;
+  }
+
+  .div-header {
+    margin-top: 13rem;
+  }
+  .div-header-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 5rem;
+  }
+  .link-header {
+    border-bottom: 1px solid rgba(255, 0, 0, 0.395);
+    padding-left: 20px;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 2rem;
+  }
+
+  .link-header::after {
+    display: none;
+  }
+
+  .link-header:hover::after {
+    display: none;
+  }
+
+  .logo-g-flix-header {
+    width: 200px;
+  }
+  .div-user-header-content {
+    bottom: 0;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1114px) {
+  .dropdown-menu {
+    right: -70%;
+  }
+}
+@media (min-width: 328px) and (max-width: 600px) {
+  .dropdown-menu-mobile {
+    position: absolute;
+    top: -153px; /* abaixo da bolinha */
+    right: -175%;
+    background-color: black;
+    border: 1px solid rgba(255, 0, 0, 0.249);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 8px 0;
+    z-index: 100;
+    min-width: 180px;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}
+@media (min-width: 278px) and (max-width: 340px) {
+  .dropdown-menu-mobile {
+    position: absolute;
+    top: -153px; /* abaixo da bolinha */
+    right: -150%;
+    background-color: black;
+    border: 1px solid rgba(255, 0, 0, 0.249);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 8px 0;
+    z-index: 100;
+    min-width: 150px;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}
+@media (min-width: 1px) and (max-width: 277px) {
+  .dropdown-menu-mobile {
+    position: absolute;
+    top: -153px; /* abaixo da bolinha */
+    right: -100%;
+    background-color: black;
+    border: 1px solid rgba(255, 0, 0, 0.249);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 8px 0;
+    z-index: 100;
+    min-width: 120px;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideInFromRigth {
+  0% {
+    transform: translateX(+100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

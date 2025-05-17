@@ -1,0 +1,32 @@
+.section-sidebar {
+  background-color: black;
+  color: aliceblue;
+  border-right: solid 0.1px rgba(255, 0, 0, 0.249);
+}
+.nav-sidebar {
+  transition: transform ease 0.3s;
+}
+.nav-sidebar:hover {
+  transform: scale(1.05);
+}
+
+.logo-admin-sidebar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: aliceblue;
+}
+
+.logo-menu-admin-open {
+  color: red;
+  width: 150px;
+  transition: width 1s ease, color 1s ease;
+}
+
+.logo-menu-admin-closed {
+  color: red;
+  width: 50px;
+  transition: width 2.5s ease, color 2.5s ease;
+}

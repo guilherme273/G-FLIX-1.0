@@ -1,0 +1,102 @@
+.info-movie {
+  display: flex;
+  justify-content: flex-start;
+}
+.info-movie p {
+  margin-left: 3px;
+  text-align: start;
+  text-transform: uppercase;
+  font-size: 15px;
+  color: rgba(240, 248, 255, 0.76);
+  padding: 5px;
+
+  display: -webkit-box;
+  display: box; /* fallback */
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  box-orient: vertical; /* fallback */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-movie {
+  width: 300px;
+  padding: 3px 3px 25px 3px;
+  background-color: rgba(0, 0, 0, 0.575);
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+  min-height: 400px;
+  position: relative;
+  flex: 0 0 auto; /* Impede que os cards encolham ou cresçam */
+}
+.card-movie:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px;
+  background-color: rgb(33, 33, 33);
+}
+.div-carousel .img-movie {
+  width: 275px;
+  height: 155px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border-radius: 20px;
+  margin: 0.5rem;
+  display: block;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.icon-play-movie {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  width: 100px;
+  height: 100px;
+  color: rgba(111, 111, 111, 0.849);
+}
+
+.image-container:hover .icon-play-movie {
+  opacity: 1;
+}
+
+.div-favoritos {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 97%;
+  position: relative;
+}
+
+.views-count {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  position: absolute;
+  left: 3%;
+  color: aliceblue;
+}
+
+.icon-favoritos {
+  width: 35px;
+  height: 35px;
+  color: white;
+  cursor: pointer;
+}
+.icon-favoritos-img {
+  width: 34px;
+  height: 34px;
+  margin-bottom: 3px;
+  cursor: pointer;
+}
+.icon-favoritos:hover {
+  color: #fff200;
+}

@@ -1,0 +1,14 @@
+.category-movie {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.category-title {
+  /* margin-top: 3rem; */
+  text-align: center;
+  width: 100%;
+  color: aliceblue;
+  font-size: xx-large;
+}

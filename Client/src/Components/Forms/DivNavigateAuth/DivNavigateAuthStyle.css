@@ -1,0 +1,19 @@
+.register-login {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+}
+.register-login .text-register-login {
+  color: aliceblue;
+  font-size: 14px;
+  margin-right: 5px;
+  flex-wrap: wrap;
+}
+.register-login .text-register-login .link-register-login {
+  font-size: 14px;
+  margin-left: 5px;
+  color: rgb(0, 119, 255);
+}
+.register-login .text-register-login .link-register-login:hover {
+  color: rgb(49, 143, 252);
+}

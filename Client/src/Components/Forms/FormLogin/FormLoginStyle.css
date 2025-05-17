@@ -1,0 +1,31 @@
+.formulario-login {
+  width: 100%;
+  border-radius: 20px;
+  margin-top: 0;
+  padding-top: 0;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon-user {
+  color: red;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.container-form-login {
+  width: 40%;
+  height: 70%;
+  background-color: rgba(25, 25, 25, 0.9);
+  border: 1px solid red;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 0px;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0.6rem;
+}

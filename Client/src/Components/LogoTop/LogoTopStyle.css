@@ -1,0 +1,25 @@
+.logo-top {
+  display: none;
+  width: 100%;
+  height: 70px;
+  top: 0;
+  background-color: #191919;
+}
+.div-image-logo-top {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #191919;
+  padding-block: 5px;
+}
+.logo-top-image {
+  width: 100px;
+}
+
+@media (min-width: 1px) and (max-width: 600px) {
+  .logo-top {
+    display: block;
+  }
+}

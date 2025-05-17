@@ -1,0 +1,21 @@
+.section-not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+  height: calc(100vh - 70px);
+  background-color: #191919;
+  padding-block: 5%;
+  flex-grow: 1; /* isso aqui é a chave */
+}
+
+@media (min-width: 1px) and (max-width: 600px) {
+  .section-not-found {
+    margin-top: 0;
+  }
+}
+@media (min-width: 1px) and (max-width: 370px) {
+  .img-not-found {
+    width: 50%;
+  }
+}

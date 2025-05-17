@@ -1,0 +1,17 @@
+.buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.buttons button {
+  background-color: transparent;
+  margin: none;
+  border: none;
+  cursor: pointer;
+  color: red;
+}
+.buttons button:hover {
+  opacity: 0.5;
+}

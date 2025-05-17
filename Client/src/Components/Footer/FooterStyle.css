@@ -1,0 +1,100 @@
+.footer {
+  background-color: black;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0.5rem;
+  gap: 0.5rem;
+  border-top: solid 1px rgba(255, 0, 0, 0.618);
+  color: aliceblue;
+  min-height: 70px;
+  bottom: 0;
+}
+
+.footer h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: aliceblue;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.logo-footer {
+  color: red;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.link-portifolio {
+  text-decoration: none;
+  cursor: pointer;
+  color: aliceblue;
+  position: relative;
+}
+.link-portifolio:hover {
+  color: rgb(147, 147, 147);
+}
+.link-portifolio::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 0%;
+  background-color: red; /* troca a cor se quiser */
+  transition: width 0.5s ease;
+  transform-origin: right;
+}
+
+.link-portifolio:hover::after {
+  width: 100%;
+}
+
+.div-icons-footer {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.link-icon-footer {
+  padding: 10px;
+  border-radius: 100%;
+  background-color: #191919;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.4s ease;
+}
+.link-icon-footer:hover {
+  transform: scale(1.15);
+  background-color: #bababa;
+}
+.link-icon-footer:hover .icon-footer-linke {
+  color: #0e77e0;
+}
+.link-icon-footer:hover .icon-footer-git {
+  color: #181717;
+}
+
+.icon-footer-git {
+  color: aliceblue;
+}
+.icon-footer-linke {
+  color: aliceblue;
+}
+.logo-g-flix-footer {
+  width: 60px;
+}
+
+@media (max-width: 344px) {
+}
+
+@media (min-width: 1px) and (max-width: 1011px) {
+}
