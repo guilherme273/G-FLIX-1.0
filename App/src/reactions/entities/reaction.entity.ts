@@ -1,6 +1,6 @@
-import { MovieEntity } from 'src/movie/entities/movie.entity';
-import { ReactionTypeEntity } from 'src/reactions_types/entities/reactions_type.entity';
-import { UserEntity } from 'src/user/entities/user.entity';
+import { MovieEntity } from '../../movie/entities/movie.entity';
+import { ReactionTypeEntity } from '../../reactions_types/entities/reactions_type.entity';
+import { UserEntity } from '../../user/entities/user.entity';
 import {
   Entity,
   PrimaryGeneratedColumn,

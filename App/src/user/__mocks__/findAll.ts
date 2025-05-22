@@ -1,0 +1,26 @@
+export const findAllUserMock = [
+  {
+    id: 1,
+    name: 'guilherme',
+    email: 'guilherme.feitosa.cunha@gmail.com',
+    password: 'senhadificil',
+    type: 1,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    reactions: [],
+    favorites: [],
+    views: [],
+  },
+  {
+    id: 2,
+    name: 'jota',
+    email: 'jotinha.arnaldo.@gmail.com',
+    password: 'senhafacil',
+    type: 0,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    reactions: [],
+    favorites: [],
+    views: [],
+  },
+];

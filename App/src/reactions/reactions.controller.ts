@@ -1,8 +1,8 @@
 import { Controller, Post, Body, UseGuards, Get } from '@nestjs/common';
 import { ReactionsService } from './reactions.service';
 import { CreateReactionDto } from './dto/create-reaction.dto';
-import { AuthGuard } from 'src/auth/auth.guard';
-import { GetUserFromPayload } from 'src/Decorators/user.decorator';
+import { AuthGuard } from '../auth/auth.guard';
+import { GetUserFromPayload } from '../Decorators/user.decorator';
 
 @Controller('reactions')
 export class ReactionsController {

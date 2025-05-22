@@ -1,0 +1,53 @@
+import { ReactionsEntity } from '../entities/reaction.entity';
+
+export const ReactionsEntityMock = (
+  overrides?: Partial<ReactionsEntity>,
+): ReactionsEntity => ({
+  id: 1,
+  id_user: 2,
+  id_reactions_type: 3,
+  id_movie: 4,
+  createdAt: new Date(),
+  updated_at: new Date(),
+  reactionType: {
+    id: 3,
+    name: 'like',
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    reactions: [],
+  },
+  movie: {
+    id: 4,
+    title: 'titulo',
+    url: 'url',
+    cover: 'url',
+    category_id: 1,
+    youtube_id: 'dsadasda',
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    category: {
+      id: 1,
+      name: 'ação',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      movies: [],
+    },
+    reactions: [],
+    reactionCounts: 1,
+    favorites: [],
+    views: [],
+  },
+  user: {
+    id: 2,
+    name: 'guilherme',
+    email: 'guilherme@.com',
+    password: 'sasadas',
+    type: 1,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    reactions: [],
+    favorites: [],
+    views: [],
+  },
+  ...overrides,
+});

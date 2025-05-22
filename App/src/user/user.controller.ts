@@ -10,8 +10,8 @@ import {
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
-import { AuthGuard } from 'src/auth/auth.guard';
-import { GetUserFromPayload } from 'src/Decorators/user.decorator';
+import { AuthGuard } from '../auth/auth.guard';
+import { GetUserFromPayload } from '../Decorators/user.decorator';
 import { UpdateUserPasswordDto } from './dto/update-user-password.dto';
 
 @Controller('user')

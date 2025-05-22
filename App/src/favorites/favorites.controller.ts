@@ -1,8 +1,8 @@
 import { Controller, Post, Body, UseGuards, Get } from '@nestjs/common';
 import { FavoritesService } from './favorites.service';
 import { CreateFavoriteDto } from './dto/create-favorite.dto';
-import { AuthGuard } from 'src/auth/auth.guard';
-import { GetUserFromPayload } from 'src/Decorators/user.decorator';
+import { AuthGuard } from '../auth/auth.guard';
+import { GetUserFromPayload } from '../Decorators/user.decorator';
 
 @Controller('favorites')
 export class FavoritesController {

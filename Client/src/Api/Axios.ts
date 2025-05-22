@@ -19,13 +19,13 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401 || error.response?.status === 503) {
+    if (error.response?.status === 401) {
       const objectError = JSON.parse(error.response.request.responseText);
       toast_fy(objectError);
       localStorage.removeItem("token");
 
       setTimeout(() => {
-        window.location.href = "/login";
+        window.location.href = "/";
       }, 3000);
     }
     return Promise.reject(error);

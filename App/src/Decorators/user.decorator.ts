@@ -1,6 +1,6 @@
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
 import { Request } from 'express';
-import { UserPayload } from 'src/auth/dto/payload.dto';
+import { UserPayload } from '../auth/dto/payload.dto';
 
 interface ExpressRequest extends Request {
   user: UserPayload;

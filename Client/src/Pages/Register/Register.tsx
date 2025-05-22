@@ -22,7 +22,7 @@ const Register: React.FC = () => {
               <DivNavigateAuth
                 sentence={"Já possui uma conta?"}
                 word={"Entrar"}
-                link={"/login"}
+                link={"/"}
               />
             </div>
           </div>

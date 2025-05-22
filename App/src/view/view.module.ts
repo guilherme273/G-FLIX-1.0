@@ -3,8 +3,8 @@ import { ViewService } from './view.service';
 import { ViewController } from './view.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { AdminModule } from 'src/admin/admin.module';
-import { AuthModule } from 'src/auth/auth.module';
+import { AdminModule } from '../admin/admin.module';
+import { AuthModule } from '../auth/auth.module';
 import { ViewEntity } from './entities/view.entity';
 
 @Module({

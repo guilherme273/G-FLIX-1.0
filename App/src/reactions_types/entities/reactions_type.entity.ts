@@ -1,4 +1,4 @@
-import { ReactionsEntity } from 'src/reactions/entities/reaction.entity';
+import { ReactionsEntity } from '../../reactions/entities/reaction.entity';
 import {
   Entity,
   PrimaryGeneratedColumn,

@@ -2,8 +2,8 @@ import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { MovieEntity } from './entities/movie.entity';
 import { Repository } from 'typeorm';
-import { CategoryEntity } from 'src/category/entities/category.entity';
-import { ReactionsEntity } from 'src/reactions/entities/reaction.entity';
+import { CategoryEntity } from '../category/entities/category.entity';
+import { ReactionsEntity } from '../reactions/entities/reaction.entity';
 
 type ReactionCountRaw = {
   movieId: number;

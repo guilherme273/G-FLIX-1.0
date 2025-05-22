@@ -9,15 +9,15 @@ import {
 
 import { ChangePermissionDto } from './dto/update-admin.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { UserEntity } from 'src/user/entities/user.entity';
+import { UserEntity } from '../user/entities/user.entity';
 import { Repository, DataSource, Between } from 'typeorm';
-import { MovieEntity } from 'src/movie/entities/movie.entity';
-import { FavoritesEntity } from 'src/favorites/entities/favorite.entity';
-import { ReactionsEntity } from 'src/reactions/entities/reaction.entity';
-import { CategoryEntity } from 'src/category/entities/category.entity';
+import { MovieEntity } from '../movie/entities/movie.entity';
+import { FavoritesEntity } from '../favorites/entities/favorite.entity';
+import { ReactionsEntity } from '../reactions/entities/reaction.entity';
+import { CategoryEntity } from '../category/entities/category.entity';
 import { subMonths, startOfMonth, format } from 'date-fns';
-import { UpdateMovieDto } from 'src/movie/dto/update-movie.dto';
-import { CreateCategoryDto } from 'src/category/dto/create-category.dto';
+import { UpdateMovieDto } from '../movie/dto/update-movie.dto';
+import { CreateCategoryDto } from '../category/dto/create-category.dto';
 import { HttpService } from '@nestjs/axios';
 import { lastValueFrom } from 'rxjs';
 import { hash } from 'bcrypt';
@@ -26,8 +26,8 @@ import {
   CreateMovieDto,
   GetMovieYoutubeDto,
   YouTubeApiResponse,
-} from 'src/movie/dto/create-movie.dto';
-import { ViewEntity } from 'src/view/entities/view.entity';
+} from '../movie/dto/create-movie.dto';
+import { ViewEntity } from '../view/entities/view.entity';
 
 @Injectable()
 export class AdminService implements OnModuleInit {

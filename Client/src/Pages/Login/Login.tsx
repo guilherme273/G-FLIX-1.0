@@ -12,7 +12,7 @@ import { Navigate } from "react-router-dom";
 const Login: React.FC = () => {
   const { isLogged } = useAuth();
   if (isLogged) {
-    return <Navigate to={"/"} />;
+    return <Navigate to={"/home"} />;
   } else {
     return (
       <>

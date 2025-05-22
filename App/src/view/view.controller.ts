@@ -11,8 +11,8 @@ import {
 import { ViewService } from './view.service';
 import { CreateViewDto } from './dto/create-view.dto';
 import { UpdateViewDto } from './dto/update-view.dto';
-import { AuthGuard } from 'src/auth/auth.guard';
-import { GetUserFromPayload } from 'src/Decorators/user.decorator';
+import { AuthGuard } from '../auth/auth.guard';
+import { GetUserFromPayload } from '../Decorators/user.decorator';
 
 @Controller('view')
 export class ViewController {

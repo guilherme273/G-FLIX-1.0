@@ -3,10 +3,9 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
-import { validationSchema } from './config/validation';
+
 import { CategoryModule } from './category/category.module';
 import { MovieModule } from './movie/movie.module';
-import { ReactionsTypesModule } from './reactions_types/reactions_types.module';
 import { ReactionsModule } from './reactions/reactions.module';
 import { FavoritesModule } from './favorites/favorites.module';
 import { AdminModule } from './admin/admin.module';
@@ -17,7 +16,6 @@ import { ViewModule } from './view/view.module';
     ConfigModule.forRoot({
       envFilePath: '.env.development.local',
       isGlobal: true,
-      validationSchema,
     }),
 
     TypeOrmModule.forRoot({
@@ -36,7 +34,6 @@ import { ViewModule } from './view/view.module';
     AuthModule,
     CategoryModule,
     MovieModule,
-    ReactionsTypesModule,
     ReactionsModule,
     FavoritesModule,
     AdminModule,

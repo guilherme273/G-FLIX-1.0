@@ -19,11 +19,11 @@ export const Routes = [
     element: <Register />,
   },
   {
-    path: "/login",
+    path: "/",
     element: <Login />,
   },
   {
-    path: "/",
+    path: "/home",
     element: <LoggedIn />,
     children: [
       {

@@ -1,5 +1,5 @@
-import { MovieEntity } from 'src/movie/entities/movie.entity';
-import { UserEntity } from 'src/user/entities/user.entity';
+import { MovieEntity } from '../../movie/entities/movie.entity';
+import { UserEntity } from '../../user/entities/user.entity';
 import {
   Column,
   CreateDateColumn,

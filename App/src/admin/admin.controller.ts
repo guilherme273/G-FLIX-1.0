@@ -10,12 +10,12 @@ import {
 } from '@nestjs/common';
 import { AdminService } from './admin.service';
 import { ChangePermissionDto } from './dto/update-admin.dto';
-import { AuthGuard } from 'src/auth/auth.guard';
+import { AuthGuard } from '../auth/auth.guard';
 import { AdminGuard } from './adminGuard';
-import { GetUserFromPayload } from 'src/Decorators/user.decorator';
-import { UpdateMovieDto } from 'src/movie/dto/update-movie.dto';
-import { CreateCategoryDto } from 'src/category/dto/create-category.dto';
-import { GetMovieYoutubeDto } from 'src/movie/dto/create-movie.dto';
+import { GetUserFromPayload } from '../Decorators/user.decorator';
+import { UpdateMovieDto } from '../movie/dto/update-movie.dto';
+import { CreateCategoryDto } from '../category/dto/create-category.dto';
+import { GetMovieYoutubeDto } from '../movie/dto/create-movie.dto';
 
 @Controller('admin')
 export class AdminController {

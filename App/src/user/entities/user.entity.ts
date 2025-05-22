@@ -1,6 +1,6 @@
-import { FavoritesEntity } from 'src/favorites/entities/favorite.entity';
-import { ReactionsEntity } from 'src/reactions/entities/reaction.entity';
-import { ViewEntity } from 'src/view/entities/view.entity';
+import { FavoritesEntity } from '../../favorites/entities/favorite.entity';
+import { ReactionsEntity } from '../../reactions/entities/reaction.entity';
+import { ViewEntity } from '../../view/entities/view.entity';
 import {
   Column,
   Entity,
