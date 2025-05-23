@@ -41,7 +41,7 @@ export class AuthService {
 
     return {
       access_token: await this.jwt.signAsync(payload),
-      msg: { type: 'success', content: `Seja bem-vindo, ${user.name}!` },
+      msg: { type: 'success', content: `Seja bem vindo, ${user.name}!` },
     };
   }
 }

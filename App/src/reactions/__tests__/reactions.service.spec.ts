@@ -2,10 +2,11 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { ReactionsService } from '../reactions.service';
 import { ReactionsEntity } from '../entities/reaction.entity';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { findAllReactionsMock } from '../__mocks__/findAll';
+
 import { Repository } from 'typeorm';
 import { ReactionsEntityMock } from '../__mocks__/ReactionsEntityMock';
-import { deleteResultMock } from '../__mocks__/delete';
+import { deleteResultMock } from '../__mocks__/reactionsDelete';
+import { findAllReactionsMock } from '../__mocks__/reactionsFindAll';
 
 describe('ReactionsService', () => {
   let service: ReactionsService;

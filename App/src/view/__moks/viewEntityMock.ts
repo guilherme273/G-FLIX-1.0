@@ -1,0 +1,46 @@
+import { ViewEntity } from '../entities/view.entity';
+
+export const viewEntityMock = (
+  overrides?: Partial<ViewEntity>,
+): ViewEntity => ({
+  id: 1,
+  id_user: 2,
+  id_movie: 3,
+  seconds_watched: 120,
+  createdAt: new Date(),
+  updated_at: new Date(),
+  movie: {
+    id: 3,
+    title: 'titulo',
+    url: 'url',
+    cover: 'url',
+    category_id: 1,
+    youtube_id: 'dsadasda',
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    category: {
+      id: 1,
+      name: 'ação',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      movies: [],
+    },
+    reactions: [],
+    reactionCounts: 1,
+    favorites: [],
+    views: [],
+  },
+  user: {
+    id: 2,
+    name: 'guilherme',
+    email: 'guilherme@.com',
+    password: 'sasadas',
+    type: 1,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    reactions: [],
+    favorites: [],
+    views: [],
+  },
+  ...overrides,
+});

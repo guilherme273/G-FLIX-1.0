@@ -507,7 +507,6 @@ export class AdminService implements OnModuleInit {
       movie.title = updateMovieDto.title;
       movie.category = category;
 
-      // Salva as alterações
       const movieUpdated = await this.movieRepository.save(movie);
 
       return {
@@ -607,22 +606,6 @@ export class AdminService implements OnModuleInit {
     }
   }
 
-  async getCategories() {
-    try {
-      const categories = await this.categoryRepository.find({
-        relations: ['movies', 'movies.views'],
-        order: {
-          name: 'ASC',
-        },
-      });
-      return {
-        categories,
-      };
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   async getViews() {
     const findmoviesForCategory = await this.categoryRepository.find({
       relations: ['movies', 'movies.views'],
@@ -656,38 +639,33 @@ export class AdminService implements OnModuleInit {
       };
     });
 
-    // Exemplo de código para montar o array com base nos últimos 30 dias
     const views = await this.viewsRepository.find({
       order: {
         createdAt: 'ASC',
       },
     });
 
-    // Obter a data atual
     const today = new Date();
 
-    // Definir a data de 30 dias atrás
     const thirtyDaysAgo = new Date(today);
     thirtyDaysAgo.setDate(today.getDate() - 10);
 
-    // Filtrar os registros que estão dentro dos últimos 30 dias
     const filteredViews = views.filter((view) => {
-      const viewDate = new Date(view.createdAt); // Supondo que cada 'view' tenha uma data
+      const viewDate = new Date(view.createdAt);
       return viewDate >= thirtyDaysAgo && viewDate <= today;
     });
 
-    // Criar um mapa para armazenar os minutos assistidos por dia
     const dailyMinutes = filteredViews.reduce((acc, view) => {
       const viewDate = new Date(view.createdAt);
-      const day = viewDate.toLocaleDateString('pt-BR'); // Formatar a data como 'dd/mm'
-      const minutes = view.seconds_watched / 60; // Converter segundos para minutos
+      const day = viewDate.toLocaleDateString('pt-BR');
+      const minutes = view.seconds_watched / 60;
       if (!acc[day]) {
-        acc[day] = 0; // Iniciar a contagem de minutos para esse dia
+        acc[day] = 0;
       }
-      acc[day] += minutes; // Somar os minutos assistidos no dia
+      acc[day] += minutes;
       return acc;
     }, {});
-    // Transformar o objeto em um array de objetos no formato desejado
+
     const resultsArray = Object.entries(dailyMinutes).map(
       ([day, minutesWatched]) => ({
         name: day,
@@ -702,6 +680,21 @@ export class AdminService implements OnModuleInit {
     };
   }
 
+  async getCategories() {
+    try {
+      const categories = await this.categoryRepository.find({
+        relations: ['movies', 'movies.views'],
+        order: {
+          name: 'ASC',
+        },
+      });
+      return {
+        categories,
+      };
+    } catch (error) {
+      console.log(error);
+    }
+  }
   extractYouTubeID = (url: string) => {
     const regex =
       /(?:\?v=|&v=|youtu\.be\/|embed\/|\/v\/|\/e\/|watch\?v=|watch\?.+&v=)([^&]+)/;

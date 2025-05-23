@@ -4,11 +4,12 @@ import { getRepositoryToken } from '@nestjs/typeorm';
 import { UserEntity } from '../entities/user.entity';
 import { UserService } from '../user.service';
 
-import { findOneUserMock } from '../__mocks__/findOne';
 import { ConflictException, NotFoundException } from '@nestjs/common';
-import { findAllUserMock } from '../__mocks__/findAll';
-import { createUser } from '../__mocks__/create';
+
 import { userEntityMock } from '../__mocks__/UserEntityMock';
+import { findAllUserMock } from '../__mocks__/UserFindAll';
+import { findOneUserMock } from '../__mocks__/UserFindOne';
+import { createUser } from '../__mocks__/UserCreate';
 
 describe('UserService', () => {
   let service: UserService;

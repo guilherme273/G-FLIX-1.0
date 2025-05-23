@@ -11,9 +11,4 @@ export class MovieController {
   findAll() {
     return this.movieService.findAll();
   }
-
-  @Get('teste')
-  teste() {
-    console.log('chegou no back!');
-  }
 }

@@ -6,7 +6,7 @@ export const userEntityMock = (
   id: 1,
   name: 'Guilherme',
   email: 'guilherme@gmail.com',
-  password: 'senha',
+  password: 'strongPassword',
   type: 1,
   createdAt: new Date(),
   updatedAt: new Date(),

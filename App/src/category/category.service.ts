@@ -21,12 +21,4 @@ export class CategoryService {
       console.log(error);
     }
   }
-
-  findOne(id: number) {
-    return `This action returns a #${id} category`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} category`;
-  }
 }
