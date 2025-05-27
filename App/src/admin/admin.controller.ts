@@ -93,7 +93,7 @@ export class AdminController {
   @UseGuards(AuthGuard, AdminGuard)
   @Patch('movie')
   updateMovie(@Body() updateMovieDto: UpdateMovieDto) {
-    return this.adminService.updateMovieDto(updateMovieDto);
+    return this.adminService.updateMovie(updateMovieDto);
   }
 
   @UseGuards(AuthGuard, AdminGuard)

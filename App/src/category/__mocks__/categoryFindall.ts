@@ -1,11 +1,12 @@
+export const categorymock = {
+  id: 1,
+  name: 'Ação',
+  createdAt: new Date(),
+  updatedAt: new Date(),
+  movies: [],
+};
 export const findAllCategoryMock = [
-  {
-    id: 1,
-    name: 'Ação',
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    movies: [],
-  },
+  categorymock,
   {
     id: 2,
     name: 'Aventura',

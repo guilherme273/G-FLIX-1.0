@@ -83,7 +83,7 @@ export class AdminService implements OnModuleInit {
     }
   }
 
-  private async fetchYouTubeData(
+  async fetchYouTubeData(
     movieYoutubeDto: GetMovieYoutubeDto,
   ): Promise<CreateMovieDto> {
     const urlMovie = movieYoutubeDto.url;
@@ -230,7 +230,6 @@ export class AdminService implements OnModuleInit {
 
   async getUsers() {
     try {
-      // 1. Pegando todos os usuários e a contagem total
       const [users, count] = await this.userRepository.findAndCount({
         select: ['id', 'name', 'email', 'type'],
       });
@@ -238,7 +237,6 @@ export class AdminService implements OnModuleInit {
         where: { type: 1 },
       });
 
-      // 2. Pegando usuários criados nos últimos 12 meses
       const now = new Date();
       const twelveMonthsAgo = startOfMonth(subMonths(now, 11));
 
@@ -248,15 +246,13 @@ export class AdminService implements OnModuleInit {
         },
       });
 
-      // 3. Inicializando estrutura de crescimento para os últimos 12 meses
       const userGrowthData: { name: string; value: number }[] = [];
       for (let i = 11; i >= 0; i--) {
         const date = subMonths(now, i);
-        const name = format(date, 'MMM'); // Exemplo: "Jan", "Feb", etc.
+        const name = format(date, 'MMM');
         userGrowthData.push({ name, value: 0 });
       }
 
-      // 4. Contando quantos usuários foram criados por mês
       usersEvolution.forEach((user) => {
         const name = format(user.createdAt, 'MMM');
         const entry = userGrowthData.find((item) => item.name === name);
@@ -265,7 +261,6 @@ export class AdminService implements OnModuleInit {
         }
       });
 
-      // 5. Retornando tudo
       return {
         users,
         count,
@@ -288,7 +283,7 @@ export class AdminService implements OnModuleInit {
     const category = await this.categoryRepository.findOne({ where: { id } });
     if (!category) {
       throw new NotFoundException({
-        msg: { type: 'success', content: 'Categoria não encontrada' },
+        msg: { type: 'error', content: 'Categoria não encontrada' },
       });
     }
 
@@ -366,54 +361,46 @@ export class AdminService implements OnModuleInit {
       where: { id: id_user_del },
     });
 
-    if (user_del) {
-      const isMainAdmin = await this.userRepository.findOne({
-        where: { email: emailMain },
-      });
-
-      if (user_del?.id === isMainAdmin?.id) {
-        throw new ConflictException({
-          msg: {
-            type: 'error',
-            content: `Usuário ${isMainAdmin.email} não pode ser deletado!`,
-          },
-        });
-      }
-
-      const userCurrent = await this.userRepository.findOne({
-        where: { id: id_user_current },
-      });
-
-      if (user_del?.id === userCurrent?.id) {
-        throw new ConflictException({
-          msg: {
-            type: 'error',
-            content: `A própria conta só pode ser deletada através do menu do usuário fora da área adminstrativa!`,
-          },
-        });
-      }
-      try {
-        await this.userRepository.delete(user_del.id);
-        return {
-          msg: {
-            type: 'success',
-            content: 'Usuário Deletado com sucesso!',
-          },
-        };
-      } catch (error) {
-        console.log(error);
-        throw new InternalServerErrorException({
-          msg: {
-            type: 'error',
-            content: 'Erro ao deletar usuário, contate o suporte!',
-          },
-        });
-      }
-    } else {
+    if (!user_del) {
       throw new NotFoundException({
         msg: {
           type: 'error',
           content: `Usuário não encontrado!`,
+        },
+      });
+    }
+
+    if (user_del.email === emailMain) {
+      throw new ConflictException({
+        msg: {
+          type: 'error',
+          content: `Usuário ${emailMain} não pode ser deletado!`,
+        },
+      });
+    }
+
+    if (user_del.id === id_user_current) {
+      throw new ConflictException({
+        msg: {
+          type: 'error',
+          content: `A própria conta só pode ser deletada através do menu do usuário fora da área adminstrativa!`,
+        },
+      });
+    }
+    try {
+      await this.userRepository.delete(user_del.id);
+      return {
+        msg: {
+          type: 'success',
+          content: 'Usuário Deletado com sucesso!',
+        },
+      };
+    } catch (error) {
+      console.log(error);
+      throw new InternalServerErrorException({
+        msg: {
+          type: 'error',
+          content: 'Erro ao deletar usuário, contate o suporte!',
         },
       });
     }
@@ -477,7 +464,7 @@ export class AdminService implements OnModuleInit {
     };
   }
 
-  async updateMovieDto(updateMovieDto: UpdateMovieDto) {
+  async updateMovie(updateMovieDto: UpdateMovieDto) {
     const movie = await this.movieRepository.findOne({
       where: { id: updateMovieDto.id_movie },
     });
@@ -528,7 +515,6 @@ export class AdminService implements OnModuleInit {
   }
 
   async changePermission(changePermission: ChangePermissionDto) {
-    console.log(changePermission.id_user);
     const emailMain = process.env.ADMIN_EMAIL;
     const user = await this.userRepository.findOne({
       where: { id: changePermission.id_user },
@@ -561,7 +547,7 @@ export class AdminService implements OnModuleInit {
       return {
         msg: {
           type: 'success',
-          content: 'sucesso!',
+          content: 'Permissão alterada com sucesso!',
         },
       };
     } catch (error) {

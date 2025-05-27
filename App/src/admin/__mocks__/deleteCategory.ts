@@ -1,14 +1,8 @@
-import { MovieEntity } from '../entities/movie.entity';
+import { MovieEntity } from 'src/movie/entities/movie.entity';
 
-export const mockRawCounts = [
-  {
-    movieId: '1',
-    reactionTypeId: '4',
-    count: '1',
-  },
-];
-
-export const movieMock: MovieEntity = {
+export const movieMockDeleteCategory = (
+  overrides?: Partial<MovieEntity>,
+): MovieEntity => ({
   id: 1,
   title: 'Aula 21',
   url: 'https://youtube.com',
@@ -28,13 +22,13 @@ export const movieMock: MovieEntity = {
     movies: [],
   },
   reactionCounts: 1,
+  ...overrides,
+});
+
+export const mockCategoriesdelete = {
+  id: 1,
+  name: 'G-FLIX-1.1',
+  createdAt: new Date(),
+  updatedAt: new Date(),
+  movies: [movieMockDeleteCategory()],
 };
-export const mockCategories = [
-  {
-    id: 1,
-    name: 'G-FLIX-1.1',
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    movies: [movieMock],
-  },
-];

@@ -43,9 +43,4 @@ export class UserController {
   findOne(@GetUserFromPayload('sub') user_id: number) {
     return this.userService.findOne(+user_id);
   }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.userService.remove(+id);
-  }
 }
