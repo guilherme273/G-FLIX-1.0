@@ -6,7 +6,7 @@ import { getRepositoryToken } from '@nestjs/typeorm';
 import { CreateFavoriteDto } from '../dto/create-favorite.dto';
 
 import { findOneMockFavorites } from '../__mocks__/favoritesFindone';
-import { deleteResultMock } from 'src/reactions/__mocks__/reactionsDelete';
+import { deleteResultMock } from '../../reactions/__mocks__/reactionsDelete';
 
 describe('FavoritesService', () => {
   let service: FavoritesService;

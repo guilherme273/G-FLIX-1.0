@@ -24,12 +24,7 @@ describe('UserService', () => {
           useValue: {
             findOne: jest.fn(),
             find: jest.fn().mockResolvedValue(findAllUserMock),
-            create: jest
-              .fn()
-              .mockResolvedValue(userEntityMock({ ...createUser, type: 0 })),
-            save: jest
-              .fn()
-              .mockResolvedValue(userEntityMock({ ...createUser, type: 0 })),
+            save: jest.fn(),
           },
         },
       ],
@@ -54,6 +49,7 @@ describe('UserService', () => {
   });
 
   it('should return NotFoundExeption when not found the user', async () => {
+    jest.spyOn(userRepository, 'findOne').mockResolvedValueOnce(null);
     await expect(service.findOne(999999999999)).rejects.toThrow(
       new NotFoundException({
         msg: { type: 'error', content: 'Usuário não encontrado!' },
@@ -68,6 +64,8 @@ describe('UserService', () => {
   });
 
   it('should create a new user', async () => {
+    jest.spyOn(userRepository, 'findOne').mockResolvedValueOnce(null);
+    jest.spyOn(userRepository, 'save').mockResolvedValueOnce(userEntityMock());
     const result = await service.create(createUser);
     expect(result.msg.type).toEqual('success');
   });

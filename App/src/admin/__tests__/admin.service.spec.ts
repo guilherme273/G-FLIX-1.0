@@ -32,7 +32,10 @@ import {
   mockCategoriesdelete,
   movieMockDeleteCategory,
 } from '../__mocks__/deleteCategory';
-import { GetMovieYoutubeDto } from '../../movie/dto/create-movie.dto';
+import {
+  CreateMovieDto,
+  GetMovieYoutubeDto,
+} from '../../movie/dto/create-movie.dto';
 import { fetchYoutubeMock } from '../__mocks__/createMovieMock';
 import { of } from 'rxjs';
 
@@ -502,5 +505,81 @@ describe('AdminService', () => {
     expect(result.url).toEqual(
       'https://www.youtube.com/watch?v=T-2OnaS-yZw&t=4919s',
     );
+  });
+
+  it('should return a ConflictException when the movie exists', async () => {
+    const dto_youtube: CreateMovieDto = {
+      title: movieMock.title,
+      url: 'https://www.youtube.com/watch?v=T-2OnaS-yZw',
+      cover: 'https://image.jpg',
+      category_id: 1,
+      youtube_id: 'abc123',
+    };
+    const dto_front: GetMovieYoutubeDto = {
+      url: 'https://www.youtube.com/watch?v=T-2OnaS-yZw',
+      category_id: '1',
+    };
+    jest.spyOn(service, 'fetchYouTubeData').mockResolvedValueOnce(dto_youtube);
+    jest.spyOn(movieRepository, 'findOne').mockResolvedValueOnce(movieMock);
+    await expect(service.createMovie(dto_front)).rejects.toThrow(
+      new ConflictException({
+        msg: {
+          type: 'error',
+          content: `Filme: ${dto_youtube.title} já cadastrado!`,
+        },
+      }),
+    );
+  });
+
+  it('should retun a NotfoundException when the category is not exist', async () => {
+    const dto_youtube: CreateMovieDto = {
+      title: movieMock.title,
+      url: 'https://www.youtube.com/watch?v=T-2OnaS-yZw',
+      cover: 'https://image.jpg',
+      category_id: 1,
+      youtube_id: 'abc123',
+    };
+    const dto_front: GetMovieYoutubeDto = {
+      url: 'https://www.youtube.com/watch?v=T-2OnaS-yZw',
+      category_id: '1',
+    };
+    jest.spyOn(service, 'fetchYouTubeData').mockResolvedValueOnce(dto_youtube);
+    jest.spyOn(movieRepository, 'findOne').mockResolvedValueOnce(null);
+    jest.spyOn(categoryRepository, 'findOne').mockResolvedValueOnce(null);
+
+    await expect(service.createMovie(dto_front)).rejects.toThrow(
+      new NotFoundException({
+        msg: {
+          type: 'error',
+          content: `Categoria não encontrada!`,
+        },
+      }),
+    );
+  });
+
+  it('should create a movie', async () => {
+    const dto: GetMovieYoutubeDto = {
+      url: 'https://www.youtube.com/watch?v=T-2OnaS-yZw&t=4919s',
+      category_id: '1',
+    };
+    const dto_youtube: CreateMovieDto = {
+      title: movieMock.title,
+      url: 'https://www.youtube.com/watch?v=T-2OnaS-yZw',
+      cover: 'https://image.jpg',
+      category_id: 1,
+      youtube_id: 'abc123',
+    };
+    jest.spyOn(httpService, 'get').mockReturnValueOnce(of(fetchYoutubeMock));
+    jest.spyOn(movieRepository, 'findOne').mockResolvedValueOnce(null);
+    jest
+      .spyOn(categoryRepository, 'findOne')
+      .mockResolvedValueOnce(categorymock);
+    jest.spyOn(movieRepository, 'save').mockResolvedValueOnce(movieMock);
+
+    const result = await service.createMovie(dto);
+    expect(result.msg).toEqual({
+      type: 'success',
+      content: `Filme: ${movieMock.title} cadastrado com sucesso!`,
+    });
   });
 });

@@ -79,7 +79,7 @@ export class AdminService implements OnModuleInit {
         password: password_hashed,
         type: Number(type),
       });
-      console.log('✅ Usuário admin criado com sucesso!');
+      return true;
     }
   }
 

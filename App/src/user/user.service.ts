@@ -37,14 +37,11 @@ export class UserService {
 
     try {
       const password = await hash(createUserDto.password, 15);
-      const user = this.userRepository.create({
+      const savedUser = await this.userRepository.save({
         ...createUserDto,
         password: password,
         type: 0,
       });
-
-      const savedUser = await this.userRepository.save(user);
-
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { password: _, ...userWithoutPassword } = savedUser;
       return {
